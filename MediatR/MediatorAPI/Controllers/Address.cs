@@ -1,13 +1,12 @@
-﻿using MediatR;
-using System;
+﻿using System;
 
-namespace MediatorApi.Services.Messages
+namespace MediatorAPI.Controllers
 {
-    public class ChangeAddressMessage: INotification
+    public class Address
     {
         public string Id { get; set; }
         public Guid ClientId { get; set; }
-        public string Address { get; set; }
+        public string NewAddress { get; set; }
         public string Name { get; set; }
         public string City { get; set; }
     }

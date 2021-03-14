@@ -25,8 +25,10 @@ namespace MediatorAPI
             services.AddControllers();
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddMediatR(typeof(ChangeAddressHandler));
+            services.AddMediatR(typeof(AddAddressHandler));
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<IRelocationRequestMediatorService, RelocationRequestMediatorService>();
+            services.AddTransient<ILocationRequestMediatorService, LocationRequestMediatorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

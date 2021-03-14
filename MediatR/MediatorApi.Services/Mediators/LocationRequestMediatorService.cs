@@ -5,24 +5,23 @@ using System.Threading.Tasks;
 
 namespace MediatorApi.Services.Mediators
 {
-    public class RelocationRequestMediatorService : IRelocationRequestMediatorService
+    public class LocationRequestMediatorService : ILocationRequestMediatorService
     {
         private readonly IMediator _mediator;
 
-        public RelocationRequestMediatorService(IMediator mediator)
+        public LocationRequestMediatorService(IMediator mediator)
         {
             _mediator = mediator;
         }
-        public async Task Run(Guid clientId, string address, string city, string name, string id)
+        public async Task Run(Guid clientId, string address, string city, string name)
         {
             //publish event of changing address
-            await _mediator.Publish(new ChangeAddressMessage
+            await _mediator.Publish(new AddAddressMessage
             {
                 ClientId = clientId,
                 Address = address,
                 City= city,
-                Name= name,
-                Id=id
+                Name= name
             });
         }
     }
